@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package inventory;
+option go_package = "github.com/facelessEmptiness/inventory_service/proto;proto";
+
+service InventoryService {
+  rpc AddProduct(ProductRequest) returns (ProductResponse);
+  rpc GetProduct(ProductID) returns (ProductResponse);
+}
+
+message ProductRequest {
+  string name = 1;
+  string description = 2;
+  double price = 3;
+  int32 stock = 4;
+  string category_id = 5;
+}
+
+message ProductResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  int32 stock = 5;
+  string category_id = 6;
+}
+
+message ProductID {
+  string id = 1;
+}
